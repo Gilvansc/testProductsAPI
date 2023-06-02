@@ -1,33 +1,30 @@
 package com.example.webSimple.controller;
 
-
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.webSimple.WebSimpleApplication;
-import com.example.webSimple.entities.Department;
 import com.example.webSimple.entities.Product;
+import com.example.webSimple.entities.ProductService;
 
 @RestController
 @RequestMapping(value = "/products")
 public class ProductController {
-	
-	List<Product> productList = WebSimpleApplication.productList;
-	
+
+	List<Product> productList = ProductService.getAllProducts();
+
 	@GetMapping
-	public ResponseEntity<List> getObjects() {	
+	public ResponseEntity<List> getObjects() {
 		return ResponseEntity.ok(productList);
 	}
-	
+
 	@GetMapping(path = "/{id}")
-	public void getProductById(){
-		
+	public ResponseEntity<Product> getProductById(@PathVariable int id) { 
+		 return new ResponseEntity<Product>(ProductService.getProductById(id),HttpStatusCode.valueOf(200));
 	}
-	
+
 }

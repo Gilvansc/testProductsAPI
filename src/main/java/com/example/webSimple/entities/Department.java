@@ -5,7 +5,6 @@ public class Department {
 	private String name;
 
 	public Department(long id, String name) {
-		super();
 		this.id = id;
 		this.name = name;
 	}
