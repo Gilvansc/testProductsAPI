@@ -3,6 +3,9 @@ package com.example.webSimple.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ProductService {
 	private static List<Product> products=new ArrayList<>();
 

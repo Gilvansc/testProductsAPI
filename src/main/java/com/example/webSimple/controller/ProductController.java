@@ -15,10 +15,9 @@ import com.example.webSimple.entities.ProductService;
 @RequestMapping(value = "/products")
 public class ProductController {
 
-	List<Product> productList = ProductService.getAllProducts();
-
 	@GetMapping
 	public ResponseEntity<List> getObjects() {
+		List<Product> productList = ProductService.getAllProducts();
 		return ResponseEntity.ok(productList);
 	}
 
@@ -26,5 +25,4 @@ public class ProductController {
 	public ResponseEntity<Product> getProductById(@PathVariable int id) { 
 		 return new ResponseEntity<Product>(ProductService.getProductById(id),HttpStatusCode.valueOf(200));
 	}
-
 }
