@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.service.ProductService;
+import com.example.repository.ProductRepository;
 import com.example.webSimple.entities.Product;
 
 @RestController
@@ -18,12 +18,12 @@ public class ProductController {
 
 	@GetMapping
 	public ResponseEntity<List> getObjects() {
-		List<Product> productList = ProductService.getAllProducts();
+		List<Product> productList = ProductRepository.getAllProducts();
 		return ResponseEntity.ok(productList);
 	}
 
 	@GetMapping(path = "/{id}")
 	public ResponseEntity<Product> getProductById(@PathVariable int id) { 
-		 return new ResponseEntity<Product>(ProductService.getProductById(id),HttpStatusCode.valueOf(200));
+		 return new ResponseEntity<Product>(ProductRepository.getProductById(id),HttpStatusCode.valueOf(200));
 	}
 }
