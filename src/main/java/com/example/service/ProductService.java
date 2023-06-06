@@ -1,9 +1,10 @@
-package com.example.webSimple.entities;
+package com.example.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import com.example.webSimple.entities.Product;
 
 @Service
 public class ProductService {

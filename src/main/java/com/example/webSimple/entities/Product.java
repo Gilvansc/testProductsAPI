@@ -1,5 +1,7 @@
 package com.example.webSimple.entities;
 
+import com.example.service.ProductService;
+
 public class Product {
 	private long id;
 	private String name;
