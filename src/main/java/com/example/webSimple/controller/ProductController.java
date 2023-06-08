@@ -15,7 +15,6 @@ import com.example.webSimple.entities.Product;
 @RequestMapping(value = "/products")
 public class ProductController {
 	
-	
 	@GetMapping
 	public ResponseEntity<List> getObjects() {
 		List<Product> productList = ProductService.getAllProducts();
