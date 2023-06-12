@@ -1,30 +1,36 @@
 package com.example.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import com.example.repository.ProductRepository;
 import com.example.webSimple.entities.Product;
 
 @Service
 public class ProductService {
-	private static List<Product> products=new ArrayList<>();
-
+	
+	public ProductService() {
+		
+	}
+	
 	public static List<Product> getAllProducts() {
-		return products;
+		return ProductRepository.getAllProducts();
 	}
 
 	public static Product getProductById(int id) {
-		for (Product product : products) {
-			if (product.getId() == id) {
-				return product;
-			}
-		}
-		return null;
+		return ProductRepository.getProductById(id);
 	}
 
 	public static void addProduct(Product product) {
-		products.add(product);
+		ProductRepository.addProduct(product);
 	}
-
+	
+	public static void deleteProduct(Product product) {
+		ProductRepository.removeProduct(product);
+	}
+	
+	public static void deleteProductById(int id) {
+		ProductRepository.removeProduct(id);
+	}
 }
