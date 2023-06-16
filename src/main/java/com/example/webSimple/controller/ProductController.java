@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.example.service.ProductService;
 import com.example.webSimple.entities.Product;
 
 @RestController
 @RequestMapping(value = "/products")
 public class ProductController {
-	
+
 	@GetMapping
 	public ResponseEntity<List> getObjects() {
 		List<Product> productList = ProductService.getAllProducts();

@@ -1,6 +1,6 @@
 package com.example.webSimple.entities;
 
-import com.example.repository.ProductRepository;
+import com.example.service.ProductService;
 
 public class Product {
 	private long id;
@@ -13,7 +13,7 @@ public class Product {
 		setName(name);
 		setPrice(price);
 		setDepartment(department);
-		ProductRepository.addProduct(this);
+		ProductService.addProduct(this);
 	}
 
 	public long getId() {
