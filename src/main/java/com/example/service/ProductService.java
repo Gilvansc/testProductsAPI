@@ -10,14 +10,14 @@ import com.example.webSimple.entities.Product;
 
 @Service
 public class ProductService {
-	
+
 	private final ProductRepository productRepository;
-	
+
 	@Autowired
 	public ProductService() {
 		productRepository = new ProductRepository();
 	}
-	
+
 	public List<Product> getAllProducts() {
 		return productRepository.getAllProducts();
 	}
@@ -30,12 +30,12 @@ public class ProductService {
 	public void addProduct(Product product) {
 		productRepository.addProduct(product);
 	}
-	
+
 	public void deleteProduct(Product product) {
 //		TODO if product doesnt exists
 		productRepository.removeProduct(product);
 	}
-	
+
 	public void deleteProductById(int id) {
 	}
 }

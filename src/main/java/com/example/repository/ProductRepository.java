@@ -9,7 +9,7 @@ import com.example.webSimple.entities.Product;
 
 @Repository
 public class ProductRepository {
-	private static List<Product> products=new ArrayList<>();
+	private static List<Product> products = new ArrayList<>();
 
 	public List<Product> getAllProducts() {
 		return products;
@@ -27,14 +27,13 @@ public class ProductRepository {
 	public void addProduct(Product product) {
 		products.add(product);
 	}
-	
-	public void removeProduct(Product product) {
-        products.remove(product);
-    }
-	public void removeProduct(int id) {
-        products.remove(id);
-    }
 
-	
+	public void removeProduct(Product product) {
+		products.remove(product);
+	}
+
+	public void removeProduct(int id) {
+		products.remove(id);
+	}
 
 }
