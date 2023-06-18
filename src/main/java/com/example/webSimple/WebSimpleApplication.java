@@ -11,7 +11,7 @@ import com.example.webSimple.entities.Product;
 @SpringBootApplication
 public class WebSimpleApplication {
 	public static void main(String[] args) {
-		List<Product> productList;
+		
 		Department d1 = new Department(1,"Tech");
 		Department d2 = new Department(1,"Pet");
 		
