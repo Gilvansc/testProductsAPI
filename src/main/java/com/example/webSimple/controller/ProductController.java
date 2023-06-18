@@ -2,7 +2,6 @@ package com.example.webSimple.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,6 @@ import com.example.webSimple.service.ProductService;
 @RequestMapping(value = "/products")
 public class ProductController {
 
-	@Autowired
 	ProductService productService;
 
 	public ProductController(ProductService productService) {
@@ -28,7 +26,6 @@ public class ProductController {
 	public ResponseEntity<List<Product>> getObjects() {
 		productService = new ProductService();
 		List<Product> productList = productService.getAllProducts();
-		System.out.println("a");
 		return ResponseEntity.ok(productList);
 	}
 
