@@ -4,7 +4,7 @@ public class Department {
 	private long id;
 	private String name;
 	/*
-	 * TODO private static list<department> department;
+	 * TODO private static list<department> departments;
 	 */
 
 	public Department(long id, String name) {

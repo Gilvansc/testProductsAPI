@@ -1,8 +1,7 @@
-package com.example.service;
+package com.example.webSimple.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.repository.ProductRepository;
@@ -13,7 +12,6 @@ public class ProductService {
 
 	private final ProductRepository productRepository;
 
-	@Autowired
 	public ProductService() {
 		productRepository = new ProductRepository();
 	}
@@ -37,5 +35,7 @@ public class ProductService {
 	}
 
 	public void deleteProductById(int id) {
+//		TODO if id not found
+		productRepository.removeProduct(id);
 	}
 }
