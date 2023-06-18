@@ -20,7 +20,7 @@ public class ProductService {
 		return productRepository.getAllProducts();
 	}
 
-	public Product getProductById(int id) {
+	public Product getProductById(long id) {
 		// if null TODO
 		return productRepository.getProductById(id);
 	}
@@ -29,13 +29,22 @@ public class ProductService {
 		productRepository.addProduct(product);
 	}
 
-	public void deleteProduct(Product product) {
-//		TODO if product doesnt exists
-		productRepository.removeProduct(product);
+	public Product deleteProduct(Product product) {
+		long id = product.getId();
+		if (productRepository.productExists(id)) {
+			productRepository.removeProduct(id);
+			return getProductById(id);
+		}
+		return null;
 	}
 
-	public void deleteProductById(int id) {
-//		TODO if id not found
-		productRepository.removeProduct(id);
+	public Product deleteProductById(long id) {
+		if (productRepository.productExists(id)) {
+			Product product = productRepository.getProductById(id);
+			productRepository.removeProduct(product);
+			return product;
+		}
+		return null;
+
 	}
 }
