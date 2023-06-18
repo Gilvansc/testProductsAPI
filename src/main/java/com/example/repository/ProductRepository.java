@@ -11,7 +11,7 @@ import com.example.webSimple.entities.Product;
 public class ProductRepository {
 	private static List<Product> products=new ArrayList<>();
 
-	public static List<Product> getAllProducts() {
+	public List<Product> getAllProducts() {
 		return products;
 	}
 
