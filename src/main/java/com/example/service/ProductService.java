@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.repository.ProductRepository;
@@ -11,6 +12,8 @@ import com.example.webSimple.entities.Product;
 public class ProductService {
 	
 	private final ProductRepository productRepository;
+	
+	@Autowired
 	public ProductService() {
 		productRepository = new ProductRepository();
 	}
@@ -20,6 +23,7 @@ public class ProductService {
 	}
 
 	public Product getProductById(int id) {
+		// if null TODO
 		return productRepository.getProductById(id);
 	}
 
@@ -28,6 +32,7 @@ public class ProductService {
 	}
 	
 	public void deleteProduct(Product product) {
+//		TODO if product doesnt exists
 		productRepository.removeProduct(product);
 	}
 	

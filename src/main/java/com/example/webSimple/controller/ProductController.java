@@ -1,7 +1,6 @@
 package com.example.webSimple.controller;
 
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -23,10 +22,16 @@ import ch.qos.logback.core.testUtil.RandomUtil;
 @RequestMapping(value = "/products")
 public class ProductController {
 
+
 	ProductService productService;
 
+	@Autowired
+	public ProductController(ProductService productService) {
+		this.productService = productService;
+	}
+
 	@GetMapping
-	public ResponseEntity<List> getObjects() {
+	public ResponseEntity<List<Product>> getObjects() {
 		productService = new ProductService();
 		List<Product> productList = productService.getAllProducts();
 		System.out.println("a");
@@ -41,7 +46,10 @@ public class ProductController {
 	@PutMapping(path = "/add")
 	public ResponseEntity<Product> createProduct(@RequestBody int id, @RequestBody String name,
 			@RequestBody double price, @RequestBody String department) {
+		// TODO
 		System.out.println(id);
-		return new ResponseEntity<Product>(new Product(id, name, 4000, new Department(RandomUtil.getPositiveInt(), department)),HttpStatusCode.valueOf(200));
+		return new ResponseEntity<Product>(
+				new Product(id, name, 4000, new Department(RandomUtil.getPositiveInt(), department)),
+				HttpStatusCode.valueOf(200));
 	}
 }
