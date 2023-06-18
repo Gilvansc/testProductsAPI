@@ -1,7 +1,5 @@
 package com.example.webSimple.entities;
 
-import com.example.repository.ProductRepository;
-
 public class Product {
 	private long id;
 	private String name;
@@ -13,7 +11,6 @@ public class Product {
 		setName(name);
 		setPrice(price);
 		setDepartment(department);
-		ProductRepository.addProduct(this);
 	}
 
 	public long getId() {

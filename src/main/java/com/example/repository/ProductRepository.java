@@ -15,7 +15,7 @@ public class ProductRepository {
 		return products;
 	}
 
-	public static Product getProductById(int id) {
+	public Product getProductById(int id) {
 		for (Product product : products) {
 			if (product.getId() == id) {
 				return product;
@@ -24,14 +24,14 @@ public class ProductRepository {
 		return null;
 	}
 
-	public static void addProduct(Product product) {
+	public void addProduct(Product product) {
 		products.add(product);
 	}
 	
-	public static void removeProduct(Product product) {
+	public void removeProduct(Product product) {
         products.remove(product);
     }
-	public static void removeProduct(int id) {
+	public void removeProduct(int id) {
         products.remove(id);
     }
 

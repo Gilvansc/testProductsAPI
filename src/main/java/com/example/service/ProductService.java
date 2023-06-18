@@ -10,27 +10,27 @@ import com.example.webSimple.entities.Product;
 @Service
 public class ProductService {
 	
+	private final ProductRepository productRepository;
 	public ProductService() {
-		
+		productRepository = new ProductRepository();
 	}
 	
-	public static List<Product> getAllProducts() {
+	public List<Product> getAllProducts() {
 		return ProductRepository.getAllProducts();
 	}
 
-	public static Product getProductById(int id) {
-		return ProductRepository.getProductById(id);
+	public Product getProductById(int id) {
+		return productRepository.getProductById(id);
 	}
 
-	public static void addProduct(Product product) {
-		ProductRepository.addProduct(product);
+	public void addProduct(Product product) {
+		productRepository.addProduct(product);
 	}
 	
-	public static void deleteProduct(Product product) {
-		ProductRepository.removeProduct(product);
+	public void deleteProduct(Product product) {
+		productRepository.removeProduct(product);
 	}
 	
-	public static void deleteProductById(int id) {
-		ProductRepository.removeProduct(id);
+	public void deleteProductById(int id) {
 	}
 }
