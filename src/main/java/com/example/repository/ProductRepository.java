@@ -17,7 +17,6 @@ public class ProductRepository {
 			products.add(new Product(1,"macbook",4000,new Department(1,"Tech")));
 			products.add(new Product(3,"pet house",300,new Department(2,"Pet")));
 		}
-			
 		return products;
 	}
 
