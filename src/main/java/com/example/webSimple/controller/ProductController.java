@@ -9,21 +9,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.service.ProductService;
 import com.example.webSimple.entities.Product;
+import com.example.webSimple.service.ProductService;
 
 @RestController
 @RequestMapping(value = "/products")
 public class ProductController {
 
+	ProductService productService;
+
+	public ProductController(ProductService productService) {
+		this.productService = productService;
+	}
+
 	@GetMapping
-	public ResponseEntity<List> getObjects() {
-		List<Product> productList = ProductService.getAllProducts();
+	public ResponseEntity<List<Product>> getObjects() {
+		productService = new ProductService();
+		List<Product> productList = productService.getAllProducts();
 		return ResponseEntity.ok(productList);
 	}
 
 	@GetMapping(path = "/{id}")
-	public ResponseEntity<Product> getProductById(@PathVariable int id) { 
-		 return new ResponseEntity<Product>(ProductService.getProductById(id),HttpStatusCode.valueOf(200));
+	public ResponseEntity<Product> getProductById(@PathVariable int id) {
+		return new ResponseEntity<Product>(productService.getProductById(id), HttpStatusCode.valueOf(200));
 	}
 }
