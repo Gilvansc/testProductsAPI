@@ -20,9 +20,13 @@ public class ProductService {
 		return productRepository.getAllProducts();
 	}
 
-	public Product getProductById(int id) {
+	public Product getProductById(int id) throws Exception {
 		// if null TODO
-		return productRepository.getProductById(id);
+		Product product=productRepository.getProductById(id);
+		if (product==null) {
+			throw new Exception("Product not found for ID:"+id);
+		}
+		return product;
 	}
 
 	public void addProduct(Product product) {
