@@ -21,10 +21,9 @@ public class ProductService {
 	}
 
 	public Product getProductById(int id) throws Exception {
-		// if null TODO
-		Product product=productRepository.getProductById(id);
-		if (product==null) {
-			throw new Exception("Product not found for ID:"+id);
+		Product product = productRepository.getProductById(id);
+		if (product == null) {
+			throw new Exception("Product not found for ID:" + id);
 		}
 		return product;
 	}
