@@ -1,44 +1,40 @@
 package com.example.webSimple.service;
 
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
 import com.example.repository.ProductRepository;
 import com.example.webSimple.entities.Product;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProductService {
 
-	private final ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
-	public ProductService() {
-		productRepository = new ProductRepository();
-	}
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
-	public List<Product> getAllProducts() {
-		return productRepository.getAllProducts();
-	}
+    public List<Product> getAllProducts() {
+        return productRepository.getAllProducts();
+    }
 
-	public Product getProductById(int id) throws Exception {
-		Product product = productRepository.getProductById(id);
-		if (product == null) {
-			throw new Exception("Product not found for ID:" + id);
-		}
-		return product;
-	}
+    public Product getProductById(int id) throws RuntimeException {
+        Product product = productRepository.getProductById(id);
+        return product;
+    }
 
-	public void addProduct(Product product) {
-		productRepository.addProduct(product);
-	}
+    public void addProduct(Product product) {
+        productRepository.addProduct(product);
+    }
 
-	public void deleteProduct(Product product) {
+    public void deleteProduct(Product product) {
 //		TODO if product doesnt exists
-		productRepository.removeProduct(product);
-	}
+        productRepository.removeProduct(product);
+    }
 
-	public void deleteProductById(int id) {
+    public void deleteProductById(int id) {
 //		TODO if id not found
-		productRepository.removeProduct(id);
-	}
+        productRepository.removeProduct(id);
+    }
 }

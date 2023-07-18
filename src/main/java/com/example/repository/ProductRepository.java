@@ -1,12 +1,11 @@
 package com.example.repository;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.stereotype.Repository;
-
 import com.example.webSimple.entities.Department;
 import com.example.webSimple.entities.Product;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class ProductRepository {
@@ -20,13 +19,13 @@ public class ProductRepository {
 		return products;
 	}
 
-	public Product getProductById(int id) {
+	public Product getProductById(int id) throws RuntimeException {
 		for (Product product : products) {
 			if (product.getId() == id) {
 				return product;
 			}
 		}
-		return null;
+		throw new RuntimeException("Product not found for ID:" + id);
 	}
 
 	public void addProduct(Product product) {

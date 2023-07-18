@@ -1,16 +1,15 @@
 package com.example.webSimple.controller;
 
-import java.util.List;
-
-import org.springframework.http.HttpStatusCode;
+import com.example.repository.ProductRepository;
+import com.example.webSimple.entities.Product;
+import com.example.webSimple.service.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.webSimple.entities.Product;
-import com.example.webSimple.service.ProductService;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/products")
@@ -24,7 +23,7 @@ public class ProductController {
 
 	@GetMapping
 	public ResponseEntity<List<Product>> getObjects() {
-		productService = new ProductService();
+		productService = new ProductService(new ProductRepository());
 		List<Product> productList = productService.getAllProducts();
 		return ResponseEntity.ok(productList);
 	}
